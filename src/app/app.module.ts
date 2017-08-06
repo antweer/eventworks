@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { MdCardModule, MdMenuModule, MdToolbarModule, MdGridListModule, MdButtonModule, MdListModule } from '@angular/material';
+import { MdCardModule, MdToolbarModule, MdButtonModule, MdInputModule, MdCheckboxModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
@@ -47,12 +48,12 @@ const ROUTES = [
     HttpModule,
     RouterModule.forRoot(ROUTES),
     MdCardModule,
-    MdMenuModule,
     MdToolbarModule,
-    MdGridListModule,
     MdButtonModule,
     FlexLayoutModule,
-    MdListModule
+    MdInputModule,
+    MdCheckboxModule,
+    BrowserAnimationsModule 
   ],
   providers: [
     AppService,

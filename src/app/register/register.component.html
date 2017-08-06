@@ -1,3 +1,35 @@
-<p>
-  register works!
-</p>
+<div class="container">
+  <md-card>
+    <md-card-title>Registering for </md-card-title>
+    <form class="full-width" ngNativeValidate>
+      <table class="full-width" cellspacing="0"><tr>
+      <td><md-input-container class="full-width">
+        <input mdInput placeholder="First name">
+      </md-input-container></td>
+      <td><md-input-container class="full-width">
+        <input mdInput placeholder="Last Name">
+      </md-input-container></td>
+      </tr></table>
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Email Address">
+      </md-input-container>
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Company">
+      </md-input-container>
+      <md-card-title>Which session(s) do you want to attend?</md-card-title>
+      <section class="full-width">
+        <md-checkbox
+            [checked]="checked"
+            [indeterminate]="indeterminate"
+            [align]="align"
+            [disabled]="disabled"
+            [labelPosition]="after">
+          Session 1
+        </md-checkbox>
+      </section>
+      <br>
+      <br>
+      <a md-raised-button [routerLink]="">Submit</a>
+    </form>
+  </md-card>
+</div>
