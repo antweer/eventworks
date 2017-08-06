@@ -1,0 +1,24 @@
+<div class="container">
+  <md-card>
+    <md-card-title-group>
+      <md-card-title>{{ details.name }}</md-card-title>
+      <md-card-subtitle>From {{ details.start_time__c | date: 'short' }} until {{ details.end_time__c | date: 'short' }}</md-card-subtitle>
+      <md-card-subtitle>{{ details.status__c }} {{ details.available_seats__c }} out of {{ details.seat_limit__c }} seats remaining!</md-card-subtitle>
+    </md-card-title-group>
+    <md-card-content>
+      {{ details.description__c }}
+      <md-list>
+        <h2>Sessions</h2>
+        <md-divider>
+        <md-list-item *ngFor="let session of sessionDetails">
+          <md-line>{{ session.name }}<md-line>
+          <md-line>From {{ session.start_time__c }} until {{ session.end_time__c }}</md-line>
+          <md-line>{{ session.available_seats__c }} out of {{ session.registration_limit__c }} seats remaining!</md-line>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+    <md-card-actions>
+      <a md-raised-button [routerLink]="">Register</a>
+    </md-card-actions>
+  </md-card>
+</div>

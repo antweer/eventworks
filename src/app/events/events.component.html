@@ -1,16 +1,21 @@
-<div class="container">
-    <div *ngFor="let event of events">
-      <md-card>
-        <md-card-title>{{ event.title__c }}</md-card-title>
-        <md-card-subtitle>{{ event.status__c }}</md-card-subtitle>
-        <md-card-content>
-          <p>Starts: {{ event.start_time__c | date: 'short'}}</p>
-          <p>Ends: {{ event.end_time__c | date: 'short'}}</p>
-          <p>{{ event.available_seats__c }} out {{ event.registration_limit__c }} seats remaining!</p>
-        </md-card-content>
-        <md-card-actions>
-          <a md-raised-button routerLink=".">Details</a>
-        </md-card-actions>
-      </md-card>
-    </div>
+
+<div class="flex-container"
+     fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutAlign="center center"
+     fxLayoutAlign.xs="start">
+  <md-card class="flex-item" fxFlex="30%" fxFlex.xs="80%" tabindex="0" *ngFor="let event of events">
+    <md-card-title-group>
+      <md-card-title>{{ event.name }}</md-card-title>
+      <md-card-subtitle>{{ event.status__c }}</md-card-subtitle>
+    </md-card-title-group>
+    <md-card-content>
+      <p>Starts: {{ event.start_time__c | date: 'short'}}</p>
+      <p>Ends: {{ event.end_time__c | date: 'short'}}</p>
+      <p>{{ event.available_seats__c }} out {{ event.seat_limit__c }} seats remaining!</p>
+    </md-card-content>
+    <md-card-actions>
+      <a md-raised-button [routerLink]="['/events', event.id__c]">Details</a>
+    </md-card-actions>
+  </md-card>
 </div>

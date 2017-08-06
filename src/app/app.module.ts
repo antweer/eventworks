@@ -3,32 +3,36 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { MdCardModule, MdMenuModule, MdToolbarModule, MdGridListModule, MdButtonModule } from '@angular/material';
+import { MdCardModule, MdMenuModule, MdToolbarModule, MdGridListModule, MdButtonModule, MdListModule } from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
+
 
 import { AppComponent } from './app.component';
 import { EventsComponent } from './events/events.component';
 import { AppService } from './app.service';
+import { DetailsComponent } from './details/details.component';
 
 const ROUTES = [
   {
     path: '',
-    redirectTo: 'posts',
+    redirectTo: 'events',
     pathMatch: 'full'
   },
   {
-    path: 'posts',
+    path: 'events',
     component: EventsComponent
   },
   {
-    path: 'test',
-    component: EventsComponent
+    path: 'events/:id',
+    component: DetailsComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    EventsComponent
+    EventsComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ const ROUTES = [
     MdMenuModule,
     MdToolbarModule,
     MdGridListModule,
-    MdButtonModule
+    MdButtonModule,
+    FlexLayoutModule,
+    MdListModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

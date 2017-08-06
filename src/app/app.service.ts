@@ -8,8 +8,19 @@ export class AppService {
 
   // Get all posts from the API
 
-  getAllEvents() {
+  getEvents() {
    return this.http.get('/api/events')
      .map(res => res.json());
   }
+
+  getDetails(id) {
+    return this.http.get(`/api/details/${id}`)
+      .map(res => res.json());
+  }
+
+  getSession(id) {
+    return this.http.get(`/api/sessions/${id}`)
+      .map(res => res.json());
+  }
+
 }

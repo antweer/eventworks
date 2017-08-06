@@ -7,13 +7,12 @@ import { AppService } from '../app.service';
   styleUrls: ['./events.component.css'],
 })
 export class EventsComponent implements OnInit {
-  posts: any = [];
   events: any = [];
 
   constructor(private appService: AppService) { }
 
   ngOnInit() {
-    this.appService.getAllEvents().subscribe(events => {
+    this.appService.getEvents().subscribe(events => {
       this.events = events;
       console.log(events);
     });
