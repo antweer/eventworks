@@ -1,6 +1,6 @@
 <div class="container">
   <md-card>
-    <md-card-title>Registering for </md-card-title>
+    <md-card-title>Registering for {{ details.name }}</md-card-title>
     <form class="full-width" [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
       <table class="full-width" cellspacing="0"><tr>
       <td><md-input-container class="full-width">
@@ -11,7 +11,10 @@
       </md-input-container></td>
       </tr></table>
       <md-input-container class="full-width">
-        <input mdInput formControlName="email" placeholder="Email Address">
+        <input mdInput formControlName="email" type="email" placeholder="Email Address">
+      </md-input-container>
+      <md-input-container class="full-width">
+        <input mdInput formControlName="phoneNumber" placeholder="Phone Number">
       </md-input-container>
       <md-input-container class="full-width">
         <input mdInput formControlName="companyName" placeholder="Company">
@@ -19,17 +22,17 @@
       <md-card-title>Which session(s) do you want to attend?</md-card-title>
       <section class="full-width">
         <md-checkbox
-            [checked]="checked"
-            [indeterminate]="indeterminate"
-            [align]="align"
-            [disabled]="disabled"
-            [labelPosition]="after">
-          Session 1
+            [labelPosition]="after"
+            formControlName=sessions
+            value="{{session.id}}"
+            [(ngModel)]="session.checked"
+            *ngFor="let session of sessionDetails">
+          {{session.name}} from {{session.start_time__c | date: 'short'}} to {{session.end_time__c | date: 'short'}}
         </md-checkbox>
       </section>
       <br>
       <br>
-      <a md-raised-button type="submit" (click)="onSubmit()" [disabled]="!form.valid" [routerLink]="">Submit</a>
+      <button md-raised-button type="submit" [disabled]="!form.valid">Submit</button>
     </form>
   </md-card>
 </div>

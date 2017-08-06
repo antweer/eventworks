@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, NgForm } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MdCardModule, MdToolbarModule, MdButtonModule, MdInputModule, MdCheckboxModule } from '@angular/material';
@@ -54,11 +54,12 @@ const ROUTES = [
     MdInputModule,
     MdCheckboxModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule
   ],
   providers: [
     AppService,
-    RegisterService
+    RegisterService,
+    NgForm
   ],
   bootstrap: [AppComponent]
 })
