@@ -78,14 +78,23 @@ router.get('/sessions/:id', (req, res) => {
   });
 });
 
-router.get('/register/:id', (req, res) => {
+router.post('/register', (req, res) => {
+  console.log(req.body);
+
+  var firstName = req.body.firstName;
+  var lastName = req.body.lastName;
+  var email = req.body.email;
+  var companyName = req.body.companyName;
+  var id = req.body.id;
+
   org.authenticate({ username: process.env['SF_USER'], password: process.env['SF_PASS']}, (err, resp) => {
     if(!err) {
       let event = req.params.id;
       let acc = nforce.createSObject('App_Attendee__c');
-      acc.set('Name', 'Test');
-      acc.set('App_Event__c', event);
-      acc.set('Email__c', 'test@test.com');
+      acc.set('Name', `${firstName} ${lastName}`);
+      acc.set('App_Event__c', id);
+      acc.set('Email__c', email);
+      acc.set('Company_Name__c', companyName);
 
       org.insert({ sobject: acc }, function(err, resp){
         if(!err) {

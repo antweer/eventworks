@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MdCardModule, MdToolbarModule, MdButtonModule, MdInputModule, MdCheckboxModule } from '@angular/material';
@@ -53,7 +53,8 @@ const ROUTES = [
     FlexLayoutModule,
     MdInputModule,
     MdCheckboxModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule,
+    ReactiveFormsModule 
   ],
   providers: [
     AppService,

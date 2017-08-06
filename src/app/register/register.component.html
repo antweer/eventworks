@@ -1,20 +1,20 @@
 <div class="container">
   <md-card>
     <md-card-title>Registering for </md-card-title>
-    <form class="full-width" ngNativeValidate>
+    <form class="full-width" [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
       <table class="full-width" cellspacing="0"><tr>
       <td><md-input-container class="full-width">
-        <input mdInput placeholder="First name">
+        <input mdInput formControlName="firstName" placeholder="First name">
       </md-input-container></td>
       <td><md-input-container class="full-width">
-        <input mdInput placeholder="Last Name">
+        <input mdInput formControlName="lastName" placeholder="Last Name">
       </md-input-container></td>
       </tr></table>
       <md-input-container class="full-width">
-        <input mdInput placeholder="Email Address">
+        <input mdInput formControlName="email" placeholder="Email Address">
       </md-input-container>
       <md-input-container class="full-width">
-        <input mdInput placeholder="Company">
+        <input mdInput formControlName="companyName" placeholder="Company">
       </md-input-container>
       <md-card-title>Which session(s) do you want to attend?</md-card-title>
       <section class="full-width">
@@ -29,7 +29,7 @@
       </section>
       <br>
       <br>
-      <a md-raised-button [routerLink]="">Submit</a>
+      <a md-raised-button type="submit" (click)="onSubmit()" [disabled]="!form.valid" [routerLink]="">Submit</a>
     </form>
   </md-card>
 </div>
