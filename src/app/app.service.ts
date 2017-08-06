@@ -23,4 +23,9 @@ export class AppService {
       .map(res => res.json());
   }
 
+  register() {
+    return this.http.post(`/api/sessions/${id}`)
+      .map(res => res.json());
+  }
+
 }

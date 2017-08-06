@@ -7,7 +7,7 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  styles: ['.pull-right { flex: 1 1 auto }']
 })
 export class DetailsComponent implements OnInit {
   details: any = [];
@@ -18,6 +18,14 @@ export class DetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location
   ) { }
+
+  onRegister() {
+    this.route.paramMap
+      .switchMap((params: ParamMap) => this.appService.register())
+      .subscribe(reply => {
+        console.log(reply);
+      })
+  }
 
   ngOnInit():  void {
     this.route.paramMap

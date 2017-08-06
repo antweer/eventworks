@@ -6,19 +6,17 @@
       <md-card-subtitle>{{ details.status__c }} {{ details.available_seats__c }} out of {{ details.seat_limit__c }} seats remaining!</md-card-subtitle>
     </md-card-title-group>
     <md-card-content>
-      {{ details.description__c }}
-      <md-list>
-        <h2>Sessions</h2>
-        <md-divider>
-        <md-list-item *ngFor="let session of sessionDetails">
-          <md-line>{{ session.name }}<md-line>
-          <md-line>From {{ session.start_time__c }} until {{ session.end_time__c }}</md-line>
-          <md-line>{{ session.available_seats__c }} out of {{ session.registration_limit__c }} seats remaining!</md-line>
-        </md-list-item>
-      </md-list>
+      <md-card-title>Description</md-card-title>
+      <div [innerHtml]="details.description__c"></div>
+      <md-card-title>Sessions</md-card-title>
+      <ul>
+        <li *ngFor="let session of sessionDetails">
+            {{ session.name }} - From {{ session.start_time__c | date: 'short' }} until {{ session.end_time__c | date: 'short' }}. {{ session.available_seats__c }} out of {{ session.registration_limit__c }} seats remaining!
+        </li>
+      </ul>
     </md-card-content>
     <md-card-actions>
-      <a md-raised-button [routerLink]="">Register</a>
+      <a md-raised-button (click)="onRegister()" [routerLink]="">Register</a>
     </md-card-actions>
   </md-card>
 </div>
