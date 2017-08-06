@@ -13,7 +13,7 @@ var org = nforce.createConnection({
 router.get('/events', (req, res) => {
   org.authenticate({ username: process.env['SF_USER'], password: process.env['SF_PASS']}, (err, resp) => {
     if(!err) {
-      let q = 'SELECT Name, Description__c, Start_Time__c, End_Time__c, Available_Seats__c, Seat_Limit__c, Status__c, id__c FROM App_Event__c';
+      let q = 'SELECT id, Name, Description__c, Start_Time__c, End_Time__c, Available_Seats__c, Seat_Limit__c, Status__c, id__c FROM App_Event__c';
       org.query({ query: q }, (err, resp) => {
         if(!err && resp.records) {
           var acc = resp.records;
@@ -47,7 +47,7 @@ router.get('/details/:id', (req, res) => {
   org.authenticate({ username: process.env['SF_USER'], password: process.env['SF_PASS']}, (err, resp) => {
     if(!err) {
       let event = req.params.id;
-      let q = `SELECT Name, Description__c, Start_Time__c, End_Time__c, Available_Seats__c, Seat_Limit__c, Status__c FROM App_Event__c WHERE id__c = '${event}'`;
+      let q = `SELECT id, Name, Description__c, Start_Time__c, End_Time__c, Available_Seats__c, Seat_Limit__c, Status__c FROM App_Event__c WHERE id = '${event}'`;
       org.query({ query: q }, (err, resp) => {
         if(!err && resp.records) {
           res.status(200).json(resp.records);
@@ -64,13 +64,35 @@ router.get('/sessions/:id', (req, res) => {
   org.authenticate({ username: process.env['SF_USER'], password: process.env['SF_PASS']}, (err, resp) => {
     if(!err) {
       let event = req.params.id;
-      let q = `SELECT Name, Start_Time__c, End_Time__c, id__c, Available_Seats__c, Registration_Limit__c, Status__c FROM App_Seesion__c WHERE App_Event__r.id__c = '${event}'`;
+      let q = `SELECT id, Name, Start_Time__c, End_Time__c, id__c, Available_Seats__c, Registration_Limit__c, Status__c FROM App_Seesion__c WHERE App_Event__r.id = '${event}'`;
       org.query({ query: q }, (err, resp) => {
         if(!err && resp.records) {
           console.log(resp.records);
           res.status(200).json(resp.records);
         } else {
           console.error(err);
+        }
+      });
+    }
+    if(err) console.error(err)
+  });
+});
+
+router.get('/register/:id', (req, res) => {
+  org.authenticate({ username: process.env['SF_USER'], password: process.env['SF_PASS']}, (err, resp) => {
+    if(!err) {
+      let event = req.params.id;
+      let acc = nforce.createSObject('App_Attendee__c');
+      acc.set('Name', 'Test');
+      acc.set('App_Event__c', event);
+      acc.set('Email__c', 'test@test.com');
+
+      org.insert({ sobject: acc }, function(err, resp){
+        if(!err) {
+          console.log('It worked!');
+          res.status(200).json('success');
+        } else {
+          console.error(err)
         }
       });
     }

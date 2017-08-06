@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { EventsComponent } from './events/events.component';
 import { AppService } from './app.service';
 import { DetailsComponent } from './details/details.component';
+import { RegisterComponent } from './register/register.component';
+import { RegisterService } from './register/register.service';
 
 const ROUTES = [
   {
@@ -25,6 +27,10 @@ const ROUTES = [
   {
     path: 'events/:id',
     component: DetailsComponent
+  },
+  {
+    path: 'register/:id',
+    component: RegisterComponent
   }
 ];
 
@@ -32,7 +38,8 @@ const ROUTES = [
   declarations: [
     AppComponent,
     EventsComponent,
-    DetailsComponent
+    DetailsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +54,10 @@ const ROUTES = [
     FlexLayoutModule,
     MdListModule
   ],
-  providers: [AppService],
+  providers: [
+    AppService,
+    RegisterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

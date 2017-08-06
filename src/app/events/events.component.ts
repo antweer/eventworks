@@ -3,8 +3,7 @@ import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-posts',
-  templateUrl: './events.component.html',
-  styleUrls: ['./events.component.css'],
+  templateUrl: './events.component.html'
 })
 export class EventsComponent implements OnInit {
   events: any = [];
