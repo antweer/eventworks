@@ -4,10 +4,10 @@ EventWorks is an event management application that integrates the Salesforce RES
 <img src="./eventworks_registration.png" width="1000">
 
 ## Built with
-* Angular
-* Express
-* Salesforce
-* Heroku
+* Angular - Client-side
+* Express - Server-side
+* Salesforce - Database
+* Heroku - Deployment
 
 ## MVP
 - [x] Potential attendees can see a list of events on the homepage along with basic details for the event such as title, start time, end time, status, registration limits, and remaining seats
