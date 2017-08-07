@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-var nforce = require('nforce');
+const nforce = require('nforce');
 
 
-var org = nforce.createConnection({
+const org = nforce.createConnection({
   clientId: process.env['CLIENT_ID'],
   clientSecret: process.env['CLIENT_SECRET'],
   redirectUri: 'http://localhost:3000/oauth/_callback',
