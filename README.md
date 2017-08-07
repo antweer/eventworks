@@ -22,6 +22,7 @@ EventWorks is an event management application that integrates the Salesforce RES
 - [x] The application is deployed on Heroku (https://eventworks.herokuapp.com/)
 
 ## Stretch Goals
+- [ ] Add error handling
 - [ ] Add sorting features to the homepage
 - [ ] Add account creation to save user profiles and manage attending events
 - [ ] Automate testing and deployment
