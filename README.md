@@ -25,3 +25,4 @@ This is an event management application that integrates the Salesforce REST API 
 - [ ] Automate testing and deployment
 
 ## Database Schema
+<img src="./eventworksschema.png" width="500">
