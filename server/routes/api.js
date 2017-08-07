@@ -13,7 +13,7 @@ const org = nforce.createConnection({
 router.get('/events', (req, res) => {
   org.authenticate({ username: process.env['SF_USER'], password: process.env['SF_PASS']}, (err, resp) => {
     if(!err) {
-      let q = 'SELECT id, Name, Description__c, Start_Time__c, End_Time__c, Available_Seats__c, Seat_Limit__c, Status__c, id__c FROM App_Event__c';
+      let q = 'SELECT id, Name, Description__c, Start_Time__c, End_Time__c, Available_Seats__c, Seat_Limit__c, Status__c, id__c FROM App_Event__c ORDER BY Start_Time__c';
       org.query({ query: q }, (err, resp) => {
         if(!err && resp.records) {
           var acc = resp.records;

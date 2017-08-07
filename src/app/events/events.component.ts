@@ -12,10 +12,7 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.appService.getEvents().subscribe(events => {
-      this.events = events.sort((a, b) => {
-          return +new Date(a.start_time__c).getTime() - +new Date(b.start_time__c).getTime();
-          });
-      console.log(events);
+      this.events = events;
     });
   }
 
