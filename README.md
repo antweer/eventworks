@@ -1,5 +1,5 @@
-# Event Manager
-This is an event management application that integrates the Salesforce REST API for database management and administration with a Angular frontend through a Node.js backend built on Express. Event planners can add events to be displayed on this app along with details such as event descriptions, event sessions, start/end times, seat availability, and more through the Salesforce website. Event goers can use the app UI (https://eventworks.herokuapp.com/) to browse through events listed and register for events and sessions by providing a name, email address, phone number, and company name. Once registered, an email will be sent to event goers via Salesforce to confirm registration.
+# EventWorks
+EventWorks is an event management application that integrates the Salesforce REST API for database management and administration with a Angular frontend through a Node.js backend built on Express. Event planners can add events to be displayed on this app along with details such as event descriptions, event sessions, start/end times, seat availability, and more through the Salesforce website. Event goers can use the UI (https://eventworks.herokuapp.com/) to browse through events that are listed and register for events and sessions by providing a name, email address, phone number, and company name. Once registered, an email will be sent to event goers via Salesforce to confirm registration.
 
 <img src="./eventworks_registration.png" width="1000">
 
