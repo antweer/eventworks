@@ -26,6 +26,7 @@ EventWorks is an event management application that integrates the Salesforce RES
 - [ ] Add account creation to save user profiles and manage attending events
 - [ ] Automate testing and deployment
 - [ ] Add animations on load
+- [ ] Reconfigure server-side API with promises instead of callbacks
 
 ## Database Schema
 <img src="./eventworksschema.png" width="1000">
