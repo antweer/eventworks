@@ -28,9 +28,9 @@
             [(ngModel)]="session.checked"
             *ngFor="let session of sessionDetails">
           {{session.name}} from {{session.start_time__c | date: 'short'}} to {{session.end_time__c | date: 'short'}}
+          <br>
         </md-checkbox>
       </section>
-      <br>
       <br>
       <button md-raised-button type="submit" [disabled]="!form.valid">Submit</button>
     </form>

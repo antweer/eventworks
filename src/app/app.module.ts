@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, NgForm } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { MdCardModule, MdToolbarModule, MdButtonModule, MdInputModule, MdCheckboxModule } from '@angular/material';
+import { MdCardModule, MdToolbarModule, MdButtonModule, MdInputModule, MdCheckboxModule, MdDialogModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -14,6 +14,7 @@ import { AppService } from './app.service';
 import { DetailsComponent } from './details/details.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register/register.service';
+import { DialogComponent } from './dialog/dialog.component';
 
 const ROUTES = [
   {
@@ -40,7 +41,8 @@ const ROUTES = [
     AppComponent,
     EventsComponent,
     DetailsComponent,
-    RegisterComponent
+    RegisterComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,11 @@ const ROUTES = [
     MdInputModule,
     MdCheckboxModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MdDialogModule
+  ],
+  entryComponents: [
+    DialogComponent
   ],
   providers: [
     AppService,

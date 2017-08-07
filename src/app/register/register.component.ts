@@ -5,6 +5,8 @@ import { Location } from '@angular/common';
 import { AppService } from '../app.service';
 import { RegisterService } from '../register/register.service';
 import 'rxjs/add/operator/switchMap';
+import { DialogComponent } from '../dialog/dialog.component';
+import { MdDialog } from '@angular/material';
 
 @Component({
   selector: 'app-register',
@@ -22,12 +24,19 @@ export class RegisterComponent implements OnInit {
     private appService: AppService,
     private registerService: RegisterService,
     private route: ActivatedRoute,
-    private location: Location) {}
+    private location: Location,
+    public dialog: MdDialog) {}
 
   selectedOptions() {
     return this.sessionDetails
               .filter(opt => opt.checked)
               .map(opt => opt.id)
+  }
+
+  createDialog(status) {
+    let dialogRef = this.dialog.open(DialogComponent, {
+        data: status,
+      });
   }
 
   onSubmit() {
@@ -44,8 +53,8 @@ export class RegisterComponent implements OnInit {
     console.log(info);
     this.registerService.register(info)
       .subscribe(
-        data => console.log('1'),
-        error => console.error(error)
+        data => this.createDialog('Success!'),
+        error => this.createDialog('Error!')
       );
     this.form.reset();
   }
