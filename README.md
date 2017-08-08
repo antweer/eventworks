@@ -40,7 +40,8 @@ EventWorks is an event management application that integrates the Salesforce RES
 ## Challenges
 
 ### Angular
-* This was my first time building an app from scratch using Angular and Salesforce. Angular felt foreign to me at first since I was so used to React. But it grew on me as I built more components. I might even enjoy using Angular more than React now...
+* This was my first time building an app from scratch using Angular. It felt foreign to me at first since I was so used to React. But Angular grew on me as I built more components. I might even enjoy using Angular more than React now... The only trouble I had was differentiating between AngularJS and Angular 2/4 when I would use google to find answers to my problems.
 
 ### Salesforce
-* Salesforce took some getting used to. I'm glad there's lots of documentation available, but I think there might be a problem of too much documentation available. It took me forever to learn how to build my first custom object because their UI just wasn't intuitive. For example, every documentation mentions going to the setup console first. I just couldn't find the link to the setup page, until I noticed a gear icon on the top of the page that had a link to Setup. 
+* Salesforce took some getting used to. I'm glad there's a lot of documentation available, but I think there might be TOO MUCH documentation available. It took forever to learn how to build my first custom object because their UI wasn't very intuitive. For example, every documentation page refer to a setup console that isn't explicitly displayed anywhere. I couldn't find the link to the setup page until I noticed a gear icon on the top of the page that had a link to Setup.
+* Fortunately for me, someone built [nforce](https://github.com/kevinohara80/nforce), a Node.js wrapper for Salesforce's REST API. The nforce package helped me tremendously for EventWorks' server-side API. 
