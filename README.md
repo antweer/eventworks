@@ -36,3 +36,11 @@ EventWorks is an event management application that integrates the Salesforce RES
 * App_Event stores each individual event - One to Many Master Detail relationship with App_Session and App_Attendee where App_Event is the Parent object for both
 * App_Session stores each individual session - Many to One relationship with App_Event where App_Session is the Child object - Many to Many relationship with App_Attendee via SessionAttendeeAssociation Junction object
 * App_Attendee stores each individual attendee - Many to One relationship with App_Event where App_Attendee is the Child object - Many to Many relationship with App_Session via SessionAttendeeAssociation Junction object
+
+## Challenges
+
+### Angular
+* This was my first time building an app from scratch using Angular and Salesforce. Angular felt foreign to me at first since I was so used to React. But it grew on me as I built more components. I might even enjoy using Angular more than React now...
+
+### Salesforce
+* Salesforce took some getting used to. I'm glad there's lots of documentation available, but I think there might be a problem of too much documentation available. It took me forever to learn how to build my first custom object because their UI just wasn't intuitive. For example, every documentation mentions going to the setup console first. I just couldn't find the link to the setup page, until I noticed a gear icon on the top of the page that had a link to Setup. 
