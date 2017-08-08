@@ -33,8 +33,6 @@ EventWorks is an event management application that integrates the Salesforce RES
 <img src="./eventworksschema.png" width="1000">
 
 ### Summary
-Each event can have many attendees and sessions linked to it. Attendees and sessions can be linked to each other as well.
-
 * App_Event stores each individual event - One to Many Master Detail relationship with App_Session and App_Attendee where App_Event is the Parent object for both
 * App_Session stores each individual session - Many to One relationship with App_Event where App_Session is the Child object - Many to Many relationship with App_Attendee via SessionAttendeeAssociation Junction object
 * App_Attendee stores each individual attendee - Many to One relationship with App_Event where App_Attendee is the Child object - Many to Many relationship with App_Session via SessionAttendeeAssociation Junction object
