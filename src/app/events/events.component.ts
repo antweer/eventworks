@@ -3,7 +3,8 @@ import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-posts',
-  templateUrl: './events.component.html'
+  templateUrl: './events.component.html',
+  styles: ['.gap{margin:10px;}']
 })
 export class EventsComponent implements OnInit {
   events: any = [];
